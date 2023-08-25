@@ -1,0 +1,40 @@
+Interview Question.
+
+You need to determine for some netlist if some component becomes compromised if some pontentially senstive component can be affected and if so the number of clock cycles required to cause a problem.
+
+Input:
+1. The number of nets in the design.
+2. Desciption of a list of nets. Each net description is on its own line in the form of:
+3. Cell_Type Cell_Name Out_Signal_Name_1 Out_Signal_Name_2 ... Out_Signal_Name_k Where k is the size of the fan out of the cell. Cell_Type in {AND, OR, XOR, NAND, NOR, DFF, INV, BUF, PI, PO}.
+4. The number of cell interaction queries.
+5. Each cell interaction is described with 2 strings:
+- The name of some corrupted Cell
+- The name of some sensitive Cell
+
+Determine for each cell interaction query the least number of cycles it would take the corrupted cell to propogate its signal to the senstive cell if it can. If there is no way for the corrupted cell to reach the uncorrupted cell print -1.
+
+Example Input:
+12
+DFF word_1_ out_3_ gate_2_ gate_1_
+DFF word_2_ out_2_ gate_3_ gate_4_
+DFF word_3_ out_1_ gate_4_
+PO out_1_
+PO out_2_
+PO out_3_
+PI in_1_ gate_1_ gate_2_
+PI in_2_ gate_4_
+XOR gate_1_ word_1_
+AND gate_2_ gate_3_
+XOR gate_3_ word_2_
+XOR gate_4_ word_3_
+4
+word_3_ word_3_ 
+word_1_ word_3_
+gate_1_ word_3_
+word_3_ word_1_
+
+Example Output:
+0
+2
+3
+-1

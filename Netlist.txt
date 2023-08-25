@@ -1,0 +1,18 @@
+12
+DFF word_1_ out_3_ gate_2_ gate_1_
+DFF word_2_ out_2_ gate_3_ gate_4_
+DFF word_3_ out_1_ gate_4_
+PO out_1_
+PO out_2_
+PO out_3_
+PI in_1_ gate_1_ gate_2_
+PI in_2_ gate_4_
+XOR gate_1_ word_1_
+AND gate_2_ gate_3_
+XOR gate_3_ word_2_
+XOR gate_4_ word_3_
+4
+word_3_ word_3_ 
+word_1_ word_3_
+gate_1_ word_3_
+word_3_ word_1_
